@@ -1,0 +1,7 @@
+{
+  "name": "Copy of A professional invoice",
+  "description": "A professional invoice generation tool for printing and photocopy businesses, featuring live preview, Bangla language support, and A4 print-optimized layouts.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
