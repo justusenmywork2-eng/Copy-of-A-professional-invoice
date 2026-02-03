@@ -13,8 +13,9 @@ export const DEFAULT_SERVICES = [
 export const INITIAL_INVOICE_DATA: InvoiceData = {
   company: {
     name: 'আপনার কোম্পানির নাম',
+    owner: 'আপনার নাম',
     address: 'দোকান নং ১২, মেইন রোড, ঢাকা',
-    phone: '০১৭০০-০০০০০০',
+    phone: '01700-000000',
     email: 'info@business.com',
   },
   customer: {
@@ -24,9 +25,8 @@ export const INITIAL_INVOICE_DATA: InvoiceData = {
   },
   invoiceNumber: 'INV-' + Math.floor(1000 + Math.random() * 9000),
   invoiceDate: new Date().toISOString().split('T')[0],
-  items: [
-    { id: '1', description: 'ফটোকপি', quantity: 1, unitPrice: 3 }
-  ],
+  items: [], // Set to empty as requested
   discount: 0,
   terms: '১. পন্য বুঝে নেওয়ার পর কোনো অভিযোগ গ্রহণ করা হবে না।\n২. অগ্রিম টাকা ফেরতযোগ্য নয়।',
+  showLogo: true,
 };

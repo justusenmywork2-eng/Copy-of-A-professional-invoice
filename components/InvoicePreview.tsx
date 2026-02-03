@@ -21,17 +21,20 @@ export const InvoicePreview: React.FC<Props> = ({ data, previewRef }) => {
         {/* Header */}
         <div className="flex justify-between items-start mb-10 border-b-2 border-gray-100 pb-8">
           <div className="flex items-center gap-4">
-            {data.company.logo ? (
-              <img src={data.company.logo} alt="Logo" className="w-16 h-16 object-contain" />
-            ) : (
-              <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-2xl">
-                {data.company.name.charAt(0)}
-              </div>
+            {data.showLogo && (
+              data.company.logo ? (
+                <img src={data.company.logo} alt="Logo" className="w-16 h-16 object-contain" />
+              ) : (
+                <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-2xl">
+                  {data.company.name.charAt(0)}
+                </div>
+              )
             )}
             <div>
               <h1 className="text-2xl font-bold text-blue-800 uppercase tracking-wide">{data.company.name}</h1>
-              <p className="text-[11px] text-gray-600 max-w-xs whitespace-pre-line leading-tight">{data.company.address}</p>
-              <p className="text-[11px] text-gray-600 mt-1">ফোন: {data.company.phone}</p>
+              <p className="text-[12px] font-semibold text-gray-700 italic">প্রোপাইটর: {data.company.owner}</p>
+              <p className="text-[11px] text-gray-600 max-w-xs whitespace-pre-line leading-tight mt-1">{data.company.address}</p>
+              <p className="text-[11px] text-gray-600 mt-1 font-medium">ফোন: {data.company.phone}</p>
               <p className="text-[11px] text-gray-600">ইমেইল: {data.company.email}</p>
             </div>
           </div>
@@ -50,7 +53,7 @@ export const InvoicePreview: React.FC<Props> = ({ data, previewRef }) => {
             <p className="text-[10px] font-bold text-blue-700 uppercase mb-2 border-b border-blue-100 pb-1">বিল টু</p>
             <h3 className="text-lg font-bold text-gray-800 leading-none mb-1">{data.customer.name || 'গ্রাহকের নাম'}</h3>
             <p className="text-[12px] text-gray-600 whitespace-pre-line leading-tight">{data.customer.address || 'গ্রাহকের ঠিকানা'}</p>
-            <p className="text-[12px] text-gray-600 mt-1 font-medium">মোবাইল: {data.customer.mobile || '০১৭০০-০০০০০০'}</p>
+            <p className="text-[12px] text-gray-600 mt-1 font-medium">মোবাইল: {data.customer.mobile || '01700-000000'}</p>
           </div>
         </div>
 
@@ -73,12 +76,12 @@ export const InvoicePreview: React.FC<Props> = ({ data, previewRef }) => {
                   <td className="py-2.5 px-3 border-l border-r text-gray-500 text-center">{index + 1}</td>
                   <td className="py-2.5 px-3 border-r text-gray-800 font-medium">{item.description}</td>
                   <td className="py-2.5 px-3 border-r text-center text-gray-600">{item.quantity}</td>
-                  <td className="py-2.5 px-3 border-r text-right text-gray-600">{item.unitPrice.toLocaleString('bn-BD')}</td>
+                  <td className="py-2.5 px-3 border-r text-right text-gray-600">{item.unitPrice.toLocaleString('en-US')}</td>
                   <td className="py-2.5 px-3 border-r text-right text-red-500 font-medium">
-                    {item.discount ? item.discount.toLocaleString('bn-BD') : '-'}
+                    {item.discount ? item.discount.toLocaleString('en-US') : '-'}
                   </td>
                   <td className="py-2.5 px-3 border-r text-right font-bold text-gray-800">
-                    {calculateItemTotal(item).toLocaleString('bn-BD')}
+                    {calculateItemTotal(item).toLocaleString('en-US')}
                   </td>
                 </tr>
               ))}

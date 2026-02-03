@@ -10,6 +10,7 @@ export interface LineItem {
 export interface CompanyInfo {
   logo?: string;
   name: string;
+  owner: string; // Added owner field
   address: string;
   phone: string;
   email: string;
@@ -30,4 +31,5 @@ export interface InvoiceData {
   discount: number;
   terms: string;
   signature?: string;
+  showLogo: boolean; // Added toggle for logo visibility
 }

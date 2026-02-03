@@ -1,6 +1,7 @@
 
 export const formatCurrency = (amount: number): string => {
-  return `৳ ${Math.round(amount).toLocaleString('bn-BD')}`;
+  // Use English locale (en-US) to ensure numbers are in English digits
+  return `৳ ${Math.round(amount).toLocaleString('en-US')}`;
 };
 
 export const calculateItemTotal = (item: { quantity: number; unitPrice: number; discount?: number }): number => {
